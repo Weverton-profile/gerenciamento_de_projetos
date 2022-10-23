@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive, sans-serif;
+    font-weight: bold;
+}
+
+html, body {
+    height: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+.header {
+    padding-top: 20px;
+    background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
+    background-size: 400% 400%;
+    align-items: center;
+    color: #ffffff;
+}
+
+.header .logo {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.header .logo h2 {
+	display: inline;
+	margin-right: 5px;
+}
+
+.header .logo i {
+	font-size: 30px;
+}
+
+.header ul {
+    margin-top: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header ul li {
+    padding: 10px 0;
+    width: 15%;
+    text-align: center;
+}
+
+.header ul .login-logout a {
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header ul .login-logout a:hover {
+   color: #BEBEBE;
+}
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.animated-cards {
+	margin-top: 20px;
+	height: 200px;
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.animated-cards div {
+	position: absolute;
+	height: 150px;
+	width: 120px;
+	border: 2px solid #000000;
+	box-shadow: 0px 16px 24px 2px rgba(0,0,0,0.14) , 0px 6px 30px 5px rgba(0,0,0,0.12) , 0px 8px 10px -7px rgba(0,0,0,0.2);
+	border-radius: 25px;
+	text-align: center;
+}
+
+.animated-cards .card-1 {
+	left: 35%;
+	top: 30%;
+	background-color: #00BFFF;
+	transform: translateY(0);
+    animation: chatTranslate 2s ease-in-out infinite;
+}
+
+.animated-cards .card-2 {
+	z-index: 1;
+	background-color: #FFD700;
+	transform: translateY(0);
+    animation: chatTranslate-2 2s ease-in-out infinite;
+}
+
+.animated-cards .card-3 {
+	right: 35%;
+	top: 30%;
+	background-color: #00FF7F;	
+	transform: translateY(0);
+    animation: chatTranslate 2s ease-in-out infinite;
+}
+
+@keyframes chatTranslate {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes chatTranslate-2 {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    .images h1, h2, h3 {
+        font-size: 1.1em;
+    }
+    
+    .header ul {
+	    justify-content: center;
+	}	
+    
+    .header ul li {
+	    width: 30%;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.animated-cards div {
+		display: none;
+	}
+}

@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive, sans-serif;
+    font-weight: bold;
+}
+
+html, body {
+    height: 100%;
+}
+
+.container-css {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.logo {
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
+    background-size: 400% 400%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2em;
+    align-items: center;
+    color: #ffffff;
+    animation: backgroundTransition 8s ease-in-out infinite;
+}
+
+@keyframes backgroundTransition {
+    0% {
+        background-position:  0% 80%;
+    }
+    50% {
+        background-position: 80% 100%;
+    }
+    100% {
+        background-position: 0% 80%;
+    }
+}
+
+.login {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 80%;
+    margin-left: 20%;
+    font-family: 'amatic sc', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.form label {
+    font-size: 1.2em;
+}
+
+.form input[type='text'] {
+    margin-bottom: 10px;
+}
+
+.form input[type='email'] {
+    margin-bottom: 10px;
+}
+
+.form input[type='email'], input[type='password'],
+input[type='text'] {
+    width: 70%;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    border: 3px solid #BEBEBE;
+}
+
+.form input[type='submit'] {
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.2em;
+    color: #ffffff;
+    background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
+}
+
+@media only screen and (max-width: 550px) {
+    .container-css {
+        display: block;
+    }
+
+    .logo {
+      width: 100%;
+      height: 30%;
+    }
+
+    .login {
+        width: 100%;
+    }
+  }
+  
