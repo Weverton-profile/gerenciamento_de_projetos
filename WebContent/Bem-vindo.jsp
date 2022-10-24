@@ -18,7 +18,7 @@
         </div>
         	<ul>
                 <li class="login-logout">
-                    <a>Entrar</a>
+                    <a href="/gerenciamento_de_projetos/entrada?action=Logar">Entrar</a>
                 </li>
                 <li class="login-logout">
                     <a href="/gerenciamento_de_projetos/entrada?action=CadastrarNovoUsuario">Increver-se</a>
