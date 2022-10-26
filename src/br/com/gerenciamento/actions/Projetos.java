@@ -22,7 +22,7 @@ public class Projetos implements Acao {
 			List<Projeto> listaDeProjetos = projetoDao.listar();
 			
 			req.setAttribute("projetos", listaDeProjetos);
-			
+
 			return "forward:projetos.jsp";
 		}	
 	}

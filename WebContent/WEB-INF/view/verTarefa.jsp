@@ -22,7 +22,7 @@
                     <a href="/gerenciamento_de_projetos/entrada?action=Logar"><i class="fa-solid fa-user"></i> Perfil</a>
                 </li>
                 <li class="login-logout">
-                    <a href="/gerenciamento_de_projetos/entrada?action=CadastrarNovoUsuario">Sair</a>
+                    <a href="entrada?action=Logout">Sair</a>
                 </li>
         	</ul>
         <div class="clear"></div>

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.gerenciamento.actions.Acao;
 
@@ -21,6 +22,15 @@ public class Entrada extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String paramAcao = req.getParameter("action");
+		
+		HttpSession sessao = req.getSession();
+		boolean usuarioNaoEstaLogado = (sessao.getAttribute("usuarioLogado") == null);
+		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Logar") || paramAcao.equals("CadastrarNovoUsuario") || paramAcao.equals("Login"));
+		
+		if(ehUmaAcaoProtegida && usuarioNaoEstaLogado) {
+			resp.sendRedirect("entrada?action=Logar");
+			return;
+		}
 		
 		String nomeDaClasse = "br.com.gerenciamento.actions." + paramAcao; 
 		
