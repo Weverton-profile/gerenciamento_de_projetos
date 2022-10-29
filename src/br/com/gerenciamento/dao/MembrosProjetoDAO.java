@@ -48,4 +48,23 @@ public class MembrosProjetoDAO {
 		}
 		return membrosProjeto;
 	}
+
+	public List<Integer> buscarMembros(Integer id) throws SQLException {
+		List<Integer> membrosProjeto = new ArrayList<>();
+		
+		String sql = "SELECT membros_id FROM MEMBROS_PROJETO WHERE id_projeto = ?";
+		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			pstm.setInt(1, id);
+			pstm.execute();
+			
+			try(ResultSet rst = pstm.getResultSet()) {
+				if(rst != null) {
+					while(rst.next()) {
+						membrosProjeto.add(rst.getInt(1));
+					}
+				}
+			}
+		}
+		return membrosProjeto;
+	}
 }
