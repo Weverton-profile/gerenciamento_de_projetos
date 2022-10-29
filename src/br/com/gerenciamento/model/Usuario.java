@@ -5,14 +5,16 @@ public class Usuario {
 	private Integer id;
 	private String nomeUsuario;
 	private String email;
-	private String cargo;
 	
-	public Usuario(Integer id, String nomeUsuario, String email, String cargo) {
-		super();
+	public Usuario(String nomeUsuario, String email) {
+		this.nomeUsuario = nomeUsuario;
+		this.email = email;
+	}
+	
+	public Usuario(Integer id, String nomeUsuario, String email) {
 		this.id = id;
 		this.nomeUsuario = nomeUsuario;
 		this.email = email;
-		this.cargo = cargo;
 	}
 
 	public Integer getId() {
@@ -27,7 +29,4 @@ public class Usuario {
 		return email;
 	}
 
-	public String getCargo() {
-		return cargo;
-	}
 }

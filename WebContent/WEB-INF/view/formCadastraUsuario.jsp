@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:url value="/entrada" var="linkEntradaServlet"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +14,24 @@
 </head>
 <body>
     
+
     <div class="container-css">
         <div class="logo">
             <p>Seja Bem-Vindo!</p>
             <h2>Faça sua inscrição</h2>
         </div>
-
+	
         <div class="login">
-            <form class="form" action="">
+            <form class="form" action="${linkEntradaServlet}" method="post">
                     <label for="nome">Nome de Usuario:</label><br>
-                    <input type="text" name="nome" id=""><br>
+                    <input type="text" name="nome" id="" required="required"><br>
                     <label for="email">E-mail:</label><br>
-                    <input type="email" name="email" id=""><br>
+                    <input type="email" name="email" id="" required="required"><br>
                     <label for="">Senha:</label><br>
-                    <input type="password" name="" id="">
+                    <input type="password" name="senha" id="" required="required">
+                    <input type="hidden" name="action" value="Inscricao">
                     <a href="/gerenciamento_de_projetos/entrada?action=Logar">já possuo uma conta</a>
-                    <input class="enviar" type="submit" value="Inscrever-se">
+                    <input type="submit">
             </form>
         </div>
     </div>

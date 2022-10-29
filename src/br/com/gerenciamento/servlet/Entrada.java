@@ -25,7 +25,7 @@ public class Entrada extends HttpServlet {
 		
 		HttpSession sessao = req.getSession();
 		boolean usuarioNaoEstaLogado = (sessao.getAttribute("usuarioLogado") == null);
-		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Logar") || paramAcao.equals("CadastrarNovoUsuario") || paramAcao.equals("Login"));
+		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Logar") || paramAcao.equals("CadastrarNovoUsuario") || paramAcao.equals("Login") || paramAcao.equals("Inscricao"));
 		
 		if(ehUmaAcaoProtegida && usuarioNaoEstaLogado) {
 			resp.sendRedirect("entrada?action=Logar");

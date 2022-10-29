@@ -9,8 +9,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.gerenciamento.dao.MembrosProjetoDAO;
 import br.com.gerenciamento.dao.ProjetoDAO;
 import br.com.gerenciamento.jdbc.ConnectionFactory;
+import br.com.gerenciamento.model.MembrosProjeto;
 import br.com.gerenciamento.model.Projeto;
 
 
@@ -19,9 +21,11 @@ public class Projetos implements Acao {
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
 		try (Connection con = new ConnectionFactory().recuperarConexao()) {
 			ProjetoDAO projetoDao = new ProjetoDAO(con);
+			MembrosProjetoDAO membrosProjetoDao = new MembrosProjetoDAO(con);
 			List<Projeto> listaDeProjetos = projetoDao.listar();
-			
+			List<MembrosProjeto> membrosDoProjeto = membrosProjetoDao.membrosProjeto();
 			req.setAttribute("projetos", listaDeProjetos);
+			req.setAttribute("membrosDoProjeto", membrosDoProjeto);
 
 			return "forward:projetos.jsp";
 		}	

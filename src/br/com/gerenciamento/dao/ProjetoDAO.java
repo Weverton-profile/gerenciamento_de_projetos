@@ -53,4 +53,28 @@ public class ProjetoDAO {
 		return projeto;
 	}
 	
+	public Boolean criarProjeto(String nome, String descricao, Integer gerente_id) throws SQLException {
+		
+		String sql = "INSERT INTO PROJETO (nome, descricao, gerente_id, andamento) VALUES (?, ?, ?, ?);";
+		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			
+			pstm.setString(1, nome);
+			pstm.setString(2, descricao);
+			pstm.setInt(3, gerente_id);
+			pstm.setString(4, "EM ANDAMENTO");
+			pstm.execute();
+		}
+		return true;
+	}
+
+	public void excluirProjeto(Integer id) throws SQLException {
+
+		String sql = " DELETE FROM PROJETO WHERE id = ?";
+		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			
+			pstm.setInt(1, id);
+			pstm.execute();
+		}	
+	}
+	
 }

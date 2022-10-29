@@ -66,6 +66,30 @@ html, body {
 	font-family: cursive;
 }
 
+.add-projeto {
+	display: flex;
+	justify-content: center;
+}
+
+.btn-add-projeto {
+	background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
+	padding: 10px;
+	border-radius: 20px;
+}
+
+.btn-add-projeto {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.btn-add-projeto:hover {
+	cursor: pointer;
+	color: #BEBEBE;
+	text-decoration: none;
+}
+
+
+
 .container-1 {
 	padding: 10px;
 }

@@ -18,7 +18,7 @@ public class UsuarioDAO {
 	
 	public Usuario encontrarUsuarioEmailSenha(String email, String senha) throws SQLException {
 		
-		String sql = "SELECT id, nome_usuario, email, cargo FROM USUARIO WHERE email = ? AND senha = ?";
+		String sql = "SELECT id, nome_usuario, email FROM USUARIO WHERE email = ? AND senha = ?";
 		Usuario usuario = null;
 		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 			
@@ -28,11 +28,41 @@ public class UsuarioDAO {
 			
 			try(ResultSet rst = pstm.getResultSet()) {
 				while(rst.next()) {
-					usuario = new Usuario(rst.getInt(1), rst.getString(2), rst.getString(3), rst.getString(4));
+					usuario = new Usuario(rst.getInt(1), rst.getString(2), rst.getString(3));
 				}
 			}
 		}
 		return usuario;
 	}
+	
+	public String encontrarUsuarioEmail(String email) throws SQLException {
+		
+		String sql = "SELECT email FROM USUARIO WHERE email = ?";
+		String emailTeste = null;
+		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			
+			pstm.setString(1, email);
 
+			pstm.execute();
+			
+			try(ResultSet rst = pstm.getResultSet()) {
+				while(rst.next()) {
+					emailTeste = rst.getString(1);
+				}
+			}
+		}
+		return emailTeste;
+	}
+	
+	public void criarNovoUsuario(String nome, String email, String senha) throws SQLException {
+		
+		String sql = "INSERT INTO USUARIO (nome_usuario, email, senha) VALUES (?, ?, ?);";
+		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+			pstm.setString(1, nome);
+			pstm.setString(2, email);
+			pstm.setString(3, senha);
+			pstm.execute();
+		}
+	}
 }

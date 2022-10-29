@@ -19,9 +19,6 @@
         </div>
         	<ul>
                 <li class="login-logout">
-                    <a href="/gerenciamento_de_projetos/entrada?action=Logar"><i class="fa-solid fa-user"></i> Perfil</a>
-                </li>
-                <li class="login-logout">
                     <a href="entrada?action=Logout">Sair</a>
                 </li>
         	</ul>

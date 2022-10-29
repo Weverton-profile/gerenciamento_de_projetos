@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://kit.fontawesome.com/bf175f9272.js"></script>
 <style><%@include file="./css/logar/style.css"%></style>
-<title>Insert title here</title>
+<title>Gerenciador de Projetos</title>
 </head>
 <body>
     <div class="container-1">
@@ -18,11 +18,11 @@
            	<p>Seja Bem-Vindo!</p>
         </div>
         <div class="login">
-            <form class="form" action="${linkEntradaServlet }" method="post">
+            <form class="form" action="${linkEntradaServlet}" method="post">
                     <label for="email">E-mail:</label><br>
-                    <input type="email" name="email" id=""><br>
+                    <input type="email" name="email" id="" required="required"><br>
                     <label for="">Senha:</label><br>
-                    <input type="password" name="senha" id="">
+                    <input type="password" name="senha" id="" required="required">
                     <input type="hidden" name="action" value="Login">
                     <a href="/gerenciamento_de_projetos/entrada?action=CadastrarNovoUsuario">não tenho uma conta ainda</a>
                     <input type="submit">
