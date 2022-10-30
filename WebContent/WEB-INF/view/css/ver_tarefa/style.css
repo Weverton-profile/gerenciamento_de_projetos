@@ -61,6 +61,31 @@ html, body {
    color: #BEBEBE;
 }
 
+.opcoes-gerente {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.opcoes-gerente form {
+	display: inline;
+}
+
+.opcoes-gerente form input[type="text"] {
+	padding: 5px;
+	border: 2px solid #000000;
+}
+
+.opcoes-gerente a {
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1.2em;
+    color: #ffffff;
+    background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
+}
+
 .titulo {
 	text-align: center;
 	font-family: cursive;
@@ -141,12 +166,30 @@ html, body {
 	margin-right: 10px;
 }
 
-.card .links a i {
+.excluir {
 	font-size: 1.5em;
 	color: red;
 }
 
-.card .links i {
+.feito {
 	font-size: 2em;
 	color: #00FF7F;
+}
+
+.membros {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.card-membro {
+	padding: 10px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	width: 60%;
+	background: linear-gradient(#B0E0E6, #ADD8E6, #B0C4DE);
+	margin-bottom: 10px;
 }

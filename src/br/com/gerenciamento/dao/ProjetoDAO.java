@@ -67,7 +67,7 @@ public class ProjetoDAO {
 
 	public void excluirProjeto(Integer id) throws SQLException {
 
-		String sql = "DELETE FROM PROJETO WHERE id = ?";
+		String sql = "call deletar_projeto(?);";
 		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 			
 			pstm.setInt(1, id);

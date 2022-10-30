@@ -28,6 +28,18 @@
         <div class="clear"></div>
 
     </header>
+	<c:if test="${projeto.getGerente_id() == idUsuario}">
+		<div class="opcoes-gerente">
+			<form class="form" action="${linkEntradaServlet}" method="post">
+				<label for="nomeTarefa">Adicionar Membro ao Projeto:</label>
+				<input type="text" name="nomeTarefa" id="" required="required" placeholder="Buscar por E-mail">
+				<input type="hidden" name="action" value="NovaTarefa">
+				<input type="hidden" name="idProjeto" value="${projeto.getId() }">
+				<input type="submit">
+			</form>
+			<a href="">Marcar como concluido</a>
+		</div>
+	</c:if>
 	<h1 class="titulo">${projeto.getNome()}</h1>
 	<div class="container-1">
 		<div class="todo">
@@ -48,7 +60,7 @@
 							<div class="links">
 								<a href="entrada?action=AtualizarTarefa&status=Fazendo&idTarefa=${tarefa.getId() }&idProjeto=${projeto.getId()}">FAZENDO</a>
 								<c:if test="${projeto.getGerente_id() == idUsuario}">
-									<a href="entrada?action=ExcluirTarefa&andamento=${tarefa.getAndamento() }&idTarefa=${tarefa.getId() }&idProjeto=${projeto.getId()}"><i class="fa-solid fa-trash"></i></a>
+									<a href="entrada?action=ExcluirTarefa&andamento=${tarefa.getAndamento() }&idTarefa=${tarefa.getId() }&idProjeto=${projeto.getId()}"><i class="excluir fa-solid fa-trash"></i></a>
 								</c:if>
 							</div>
 						</div>
@@ -67,7 +79,7 @@
 									<a href="entrada?action=AtualizarTarefa&status=Feito&idTarefa=${tarefa.getId() }&idProjeto=${projeto.getId()}">FEITO</a>
 								</c:if>
 								<c:if test="${projeto.getGerente_id() == idUsuario}">
-									<a href="entrada?action=ExcluirTarefa&andamento=${tarefa.getAndamento() }&idTarefa=${tarefa.getId()}&idProjeto=${projeto.getId()}"><i class="fa-solid fa-trash"></i></a>
+									<a href="entrada?action=ExcluirTarefa&andamento=${tarefa.getAndamento() }&idTarefa=${tarefa.getId()}&idProjeto=${projeto.getId()}"><i class="excluir fa-solid fa-trash"></i></a>
 								</c:if>
 							</div>
 						</div>
@@ -82,7 +94,7 @@
 						<div>
 							${tarefa.getNome()}
 							<div class="links">
-								<i class="fa-solid fa-circle-check"></i>
+								<i class="feito fa-solid fa-circle-check"></i>
 							</div>
 						</div>
 					</div>
@@ -90,6 +102,15 @@
 			</c:forEach>
 		</div>
 	</div>
-    
+	<c:if test="${projeto.getGerente_id() == idUsuario}">
+		<div class="membros">
+			<div class="card-membro">
+				<span>Nome do Membro</span> - <span>Email Membro</span> - <i class="excluir fa-solid fa-trash"></i>
+			</div>
+			<div class="card-membro">
+				<span>Nome do Membro</span> - <span>Email Membro</span> - <i class="excluir fa-solid fa-trash"></i>
+			</div>
+		</div>
+    </c:if>
 </body>
 </html>
