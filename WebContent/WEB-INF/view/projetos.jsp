@@ -28,14 +28,14 @@
     </header>
 	<h1 class="titulo">Seus Projetos</h1>
 	<div class="add-projeto">
-		<a href="/gerenciamento_de_projetos/entrada?action=NovoProjeto" class="btn-add-projeto">Adicionare novos Projetos</a>
+		<a href="/gerenciamento_de_projetos/entrada?action=NovoProjeto" class="btn-add-projeto">Adicionar novos Projetos</a>
 	</div>
     <main class="container-1">
 		<ul>
 			<c:forEach items="${projetos}" var="projeto">
 				<c:forEach items="${membrosDoProjeto}" var="membroProjeto">
 					<c:if test="${projeto.getId() == membroProjeto.getId_projeto()}">
-						<c:if test="${projeto.getGerente_id() == idUsuario || membrosProjeto.getId_membro() == idUsuario }">
+						<c:if test="${projeto.getGerente_id() == idUsuario || membroProjeto.getId_membro() == idUsuario }">
 							<li class="cards">
 								<h4>${projeto.getNome()}</h4>
 								<p>${projeto.getDescricao()}</p>

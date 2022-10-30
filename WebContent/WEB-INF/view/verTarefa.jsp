@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:url value="/entrada" var="linkEntradaServlet"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +31,48 @@
 	<h1 class="titulo">${projeto.getNome()}</h1>
 	<div class="container-1">
 		<div class="todo">
-			<button>Adicionar nova tarefa</button>
+			<form class="form" action="${linkEntradaServlet}" method="post">
+				<label for="nomeTarefa">Nova Tarefa:</label>
+				<input type="text" name="nomeTarefa" id="" required="required">
+				<input type="hidden" name="action" value="NovaTarefa">
+				<input type="hidden" name="idProjeto" value="${projeto.getId() }">
+				<input type="submit">
+			</form>
+			<c:forEach items="${tarefas}" var="tarefa">
+				<c:if test="${tarefa.getAndamento().equals('PARA FAZER')}">
+					<div class="card">
+						<div>
+							${tarefa.getNome()}
+							<a href="">FAZENDO</a>
+						</div>
+					</div>
+				</c:if>
+			</c:forEach>
 		</div>
 		<div class="doing">
-	
+			<c:forEach items="${tarefas}" var="tarefa">
+				<c:if test="${tarefa.getAndamento().equals('FAZENDO')}">
+					<div class="card">
+						<div>
+							${tarefa.getNome()}
+							<c:if test="${tarefa.getMembro_id() == idUsuario}">
+								<a href="">FEITO</a>
+							</c:if>
+						</div>
+					</div>
+				</c:if>
+			</c:forEach>
 		</div>
 		<div class="done">
+			<c:forEach items="${tarefas}" var="tarefa">
+				<c:if test="${tarefa.getAndamento().equals('FEITO')}">
+					<div class="card">
+						<div>
+							${tarefa.getNome()}
+						</div>
+					</div>
+				</c:if>
+			</c:forEach>
 		</div>
 	</div>
     
