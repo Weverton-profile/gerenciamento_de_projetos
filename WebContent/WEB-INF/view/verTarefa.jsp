@@ -31,19 +31,26 @@
 	<h1 class="titulo">${projeto.getNome()}</h1>
 	<div class="container-1">
 		<div class="todo">
-			<form class="form" action="${linkEntradaServlet}" method="post">
-				<label for="nomeTarefa">Nova Tarefa:</label>
-				<input type="text" name="nomeTarefa" id="" required="required">
-				<input type="hidden" name="action" value="NovaTarefa">
-				<input type="hidden" name="idProjeto" value="${projeto.getId() }">
-				<input type="submit">
-			</form>
+			<c:if test="${projeto.getGerente_id() == idUsuario}">
+				<form class="form" action="${linkEntradaServlet}" method="post">
+					<label for="nomeTarefa">Nova Tarefa:</label>
+					<input type="text" name="nomeTarefa" id="" required="required">
+					<input type="hidden" name="action" value="NovaTarefa">
+					<input type="hidden" name="idProjeto" value="${projeto.getId() }">
+					<input type="submit">
+				</form>
+			</c:if>
 			<c:forEach items="${tarefas}" var="tarefa">
 				<c:if test="${tarefa.getAndamento().equals('PARA FAZER')}">
 					<div class="card">
 						<div>
 							${tarefa.getNome()}
-							<a href="">FAZENDO</a>
+							<div class="links">
+								<a href="entrada?action=AtualizarTarefa&status=Fazendo">FAZENDO</a>
+								<c:if test="${projeto.getGerente_id() == idUsuario}">
+									<a href="entrada?action=ExcluirTarefa&idTarefa=${tarefa.getId() }"><i class="fa-solid fa-trash"></i></a>
+								</c:if>
+							</div>
 						</div>
 					</div>
 				</c:if>
@@ -55,9 +62,14 @@
 					<div class="card">
 						<div>
 							${tarefa.getNome()}
-							<c:if test="${tarefa.getMembro_id() == idUsuario}">
-								<a href="">FEITO</a>
-							</c:if>
+							<div class="links">
+								<c:if test="${tarefa.getMembro_id() == idUsuario}">
+									<a href="entrada?action=AtualizarTarefa&status=Feito">FEITO</a>
+								</c:if>
+								<c:if test="${projeto.getGerente_id() == idUsuario}">
+									<a href="entrada?action=ExcluirTarefa&idTarefa=${tarefa.getId() }"><i class="fa-solid fa-trash"></i></a>
+								</c:if>
+							</div>
 						</div>
 					</div>
 				</c:if>
@@ -69,6 +81,9 @@
 					<div class="card">
 						<div>
 							${tarefa.getNome()}
+							<div class="links">
+								<i class="fa-solid fa-circle-check"></i>
+							</div>
 						</div>
 					</div>
 				</c:if>

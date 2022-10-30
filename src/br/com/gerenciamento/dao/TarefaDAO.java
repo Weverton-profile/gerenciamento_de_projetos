@@ -40,7 +40,7 @@ public class TarefaDAO {
 			
 			try(ResultSet rst = pstm.getResultSet()) {
 				while(rst.next()) {
-					Tarefa tarefa = new Tarefa(rst.getInt(1), rst.getInt(2), rst.getString(3), rst.getString(4));
+					Tarefa tarefa = new Tarefa(rst.getInt(1), rst.getInt(2), rst.getString(3), rst.getString(4), rst.getInt(5));
 					tarefas.add(tarefa);
 				}
 			}
