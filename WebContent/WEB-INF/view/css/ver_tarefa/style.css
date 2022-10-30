@@ -104,7 +104,7 @@ html, body {
 }
 
 .form input[type="submit"] {
-	padding: 3px;
+	padding: 1px;
 	border-radius: 20px;
 	border: none;
 }

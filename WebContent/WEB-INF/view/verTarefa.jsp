@@ -46,9 +46,9 @@
 						<div>
 							${tarefa.getNome()}
 							<div class="links">
-								<a href="entrada?action=AtualizarTarefa&status=Fazendo">FAZENDO</a>
+								<a href="entrada?action=AtualizarTarefa&status=Fazendo&idTarefa=${tarefa.getId() }&idProjeto=${projeto.getId()}">FAZENDO</a>
 								<c:if test="${projeto.getGerente_id() == idUsuario}">
-									<a href="entrada?action=ExcluirTarefa&idTarefa=${tarefa.getId() }"><i class="fa-solid fa-trash"></i></a>
+									<a href="entrada?action=ExcluirTarefa&andamento=${tarefa.getAndamento() }&idTarefa=${tarefa.getId() }&idProjeto=${projeto.getId()}"><i class="fa-solid fa-trash"></i></a>
 								</c:if>
 							</div>
 						</div>
@@ -64,10 +64,10 @@
 							${tarefa.getNome()}
 							<div class="links">
 								<c:if test="${tarefa.getMembro_id() == idUsuario}">
-									<a href="entrada?action=AtualizarTarefa&status=Feito">FEITO</a>
+									<a href="entrada?action=AtualizarTarefa&status=Feito&idTarefa=${tarefa.getId() }&idProjeto=${projeto.getId()}">FEITO</a>
 								</c:if>
 								<c:if test="${projeto.getGerente_id() == idUsuario}">
-									<a href="entrada?action=ExcluirTarefa&idTarefa=${tarefa.getId() }"><i class="fa-solid fa-trash"></i></a>
+									<a href="entrada?action=ExcluirTarefa&andamento=${tarefa.getAndamento() }&idTarefa=${tarefa.getId()}&idProjeto=${projeto.getId()}"><i class="fa-solid fa-trash"></i></a>
 								</c:if>
 							</div>
 						</div>

@@ -47,4 +47,46 @@ public class TarefaDAO {
 		}
 		return tarefas;
 	}
+
+	public void atualizarStatus(Integer id, String status, Integer idUsuario) throws SQLException {
+		String sql = "UPDATE TAREFA SET andamento = ?, membro_id = ? WHERE id = ?;";
+		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			
+			if (status.equals("Fazendo")) {
+				pstm.setString(1, "FAZENDO");
+			} else {
+				pstm.setString(1, "FEITO");
+			}		
+			pstm.setInt(2, idUsuario);
+			pstm.setInt(3, id);
+			pstm.execute();
+		}
+	}
+
+	public Integer buscarTarefa(Integer id) throws SQLException {
+		Integer tarefa = null;
+		String sql = "SELECT membro_id FROM TAREFA WHERE id = ?;";
+		
+		try(PreparedStatement pstm = con.prepareStatement(sql)) {
+			pstm.setInt(1, id);
+			pstm.execute();
+			
+			try(ResultSet rst = pstm.getResultSet()) {
+				while(rst.next()) {
+					tarefa = rst.getInt(1);
+				}
+			}
+		}
+		return tarefa;
+	}
+
+	public void excluirTarefa(Integer idP, Integer idT) throws SQLException {
+		String sql = "DELETE FROM TAREFA WHERE id_projeto = ? AND id = ?;";
+		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+				
+			pstm.setInt(1, idP);
+			pstm.setInt(2, idT);
+			pstm.execute();
+		}	
+	}
 }
