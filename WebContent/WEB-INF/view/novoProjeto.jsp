@@ -26,7 +26,7 @@
 	</header>
 	<h1 class="titulo">Novo Projeto</h1>
 	<div class="login">
-		<form class="form" action="${linkEntradaServlet}">
+		<form class="form" action="${linkEntradaServlet}" method="post">
 			<label for="nomeProjeto">Nome do Projeto:</label><br>
 			<input type="text" name="nomeProjeto" id="" required="required"><br>
 			<label for="descricao">Descrição:</label><br>

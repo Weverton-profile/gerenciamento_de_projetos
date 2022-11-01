@@ -157,7 +157,7 @@ html, body {
 	justify-content: flex-end;
 }
 
-.card .links a:first-child {
+.avanco {
 	background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
 	padding: 5px;
 	border-radius: 20px;

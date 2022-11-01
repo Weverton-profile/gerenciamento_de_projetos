@@ -30,11 +30,12 @@ public class MembrosProjetoDAO {
 	}
 	
 
-	public List<MembrosProjeto> membrosProjeto() throws SQLException {
+	public List<MembrosProjeto> membrosProjeto(Integer id) throws SQLException {
 		List<MembrosProjeto> membrosProjeto = new ArrayList<>();
 		
-		String sql = "SELECT * FROM MEMBROS_PROJETO";
+		String sql = "SELECT * FROM MEMBROS_PROJETO WHERE membros_id = ?";
 		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			pstm.setInt(1, id);
 			pstm.execute();
 			
 			try(ResultSet rst = pstm.getResultSet()) {

@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.gerenciamento.dao.MembrosProjetoDAO;
 import br.com.gerenciamento.dao.ProjetoDAO;
@@ -23,7 +24,9 @@ public class Projetos implements Acao {
 			ProjetoDAO projetoDao = new ProjetoDAO(con);
 			MembrosProjetoDAO membrosProjetoDao = new MembrosProjetoDAO(con);
 			List<Projeto> listaDeProjetos = projetoDao.listar();
-			List<MembrosProjeto> membrosDoProjeto = membrosProjetoDao.membrosProjeto();
+			HttpSession sessao = req.getSession();
+			Integer id = (Integer) sessao.getAttribute("idUsuario");
+			List<MembrosProjeto> membrosDoProjeto = membrosProjetoDao.membrosProjeto(id);
 			req.setAttribute("projetos", listaDeProjetos);
 			req.setAttribute("membrosDoProjeto", membrosDoProjeto);
 
