@@ -88,13 +88,13 @@ html, body {
 	text-decoration: none;
 }
 
-
-
 .container-1 {
 	padding: 10px;
+	display: flex;
 }
 
 .container-1 ul {
+	width: 100%;
 	list-style: none;
 	display: flex;
   	flex-wrap: wrap;
@@ -118,7 +118,6 @@ html, body {
 
 .container-1 .cards a {
 	text-decoration: none;
-	margin-bottom: 50px;
     border: none;
     border-radius: 10px;
     padding: 10px;
@@ -131,4 +130,17 @@ html, body {
 .container-1 .cards a:hover {
 	color: #000000;
 	cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px) {
+	.container-1 ul {
+		display: inline-block;
+      	vertical-align: top;
+	}
+	
+	.container-1 .cards {
+		max-width: 60%;
+ 		flex: 60%;
+ 		margin-left: 10%;
+	}	
 }
