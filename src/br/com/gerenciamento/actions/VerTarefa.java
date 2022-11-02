@@ -41,6 +41,7 @@ public class VerTarefa implements Acao {
 				req.setAttribute("tarefas", tarefas);
 				List<Usuario> usuarios = usuarioDAO.pegarTodosOsMembros(paramId);
 				req.setAttribute("usuarios", usuarios);
+				req.setAttribute("idProjeto", paramId);
 				return "forward:verTarefa.jsp";
 			} else {
 				return "redirect:entrada?action=Projetos";

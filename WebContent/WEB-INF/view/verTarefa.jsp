@@ -107,7 +107,7 @@
 			<c:forEach items="${usuarios}" var="usuario">
 				<c:if test="${usuario.getId() != idUsuario}">
 					<div class="card-membro">
-						<span>${usuario.getNomeUsuario()}</span> - <span>${usuario.getEmail()}</span> - <a href="entrada?action=InserirNoProjeto&idProjeto=${idProjeto}&usuarioId=${usuario.getId()}"><i class="excluir fa-solid fa-trash"></i></a>
+						<span>${usuario.getNomeUsuario()}</span> - <span>${usuario.getEmail()}</span> - <a href="entrada?action=ExcluirDoProjeto&idProjeto=${idProjeto}&usuarioId=${usuario.getId()}"><i class="excluir fa-solid fa-trash"></i></a>
 					</div>
 				</c:if>
 			</c:forEach>

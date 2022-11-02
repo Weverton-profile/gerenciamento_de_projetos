@@ -74,5 +74,15 @@ public class ProjetoDAO {
 			pstm.execute();
 		}	
 	}
+
+	public void excluirMembroDoProjeto(Integer usuarioId, Integer idProjeto) throws SQLException {
+		String sql = "call excluir_membro_do_projeto(?, ?);";
+		try(PreparedStatement pstm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			
+			pstm.setInt(1, usuarioId);
+			pstm.setInt(2, idProjeto);
+			pstm.execute();
+		}	
+	}
 	
 }
