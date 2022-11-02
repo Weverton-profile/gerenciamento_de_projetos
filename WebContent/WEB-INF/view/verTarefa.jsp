@@ -31,13 +31,12 @@
 	<c:if test="${projeto.getGerente_id() == idUsuario}">
 		<div class="opcoes-gerente">
 			<form class="form" action="${linkEntradaServlet}" method="post">
-				<label for="stringUsuario">Adicionar Membro ao Projeto:</label>
+				<label for="stringUsuario">Adicionar Membro:</label>
 				<input type="text" name="stringUsuario" id="" required="required" placeholder="Buscar Usuario">
 				<input type="hidden" name="action" value="BuscarUsuario">
 				<input type="hidden" name="idProjeto" value="${projeto.getId() }">
 				<input type="submit">
 			</form>
-			<a href="">Marcar como concluido</a>
 		</div>
 	</c:if>
 	<h1 class="titulo">${projeto.getNome()}</h1>
@@ -102,6 +101,7 @@
 			</c:forEach>
 		</div>
 	</div>
+	<h4 class="titulo">Membros do Projeto:</h4>
 	<c:if test="${projeto.getGerente_id() == idUsuario}">
 	    <div class="membros">
 			<c:forEach items="${usuarios}" var="usuario">

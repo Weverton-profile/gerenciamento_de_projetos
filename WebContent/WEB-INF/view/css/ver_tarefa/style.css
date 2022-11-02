@@ -96,6 +96,7 @@ html, body {
 	display: flex;
 	flex: row;
 	align-items: flex-start;
+	flex-wrap: wrap;
 }
 
 .container-1 div {
@@ -192,4 +193,36 @@ html, body {
 	width: 60%;
 	background: linear-gradient(#B0E0E6, #ADD8E6, #B0C4DE);
 	margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1050px) {
+	.opcoes-gerente {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	.opcoes-gerente form {
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		display: block;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 1002px) {
+  	.container-1 .todo, .container-1 .doing, .container-1 .done {
+		flex: 80%;
+   	}
+}
+
+@media only screen and (max-width: 626px) {
+	.opcoes-gerente form {
+		text-align: center;
+	}
+	
+  	.opcoes-gerente form label {
+		display: none;
+   	}
 }
