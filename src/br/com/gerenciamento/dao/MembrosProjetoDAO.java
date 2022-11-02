@@ -18,12 +18,12 @@ public class MembrosProjetoDAO {
 		this.con = con;
 	}
 	
-	public void adicionarMembro(Integer id_projeto, Integer id_gerente) throws SQLException {
+	public void adicionarMembro(String idProjeto, String usuarioId) throws SQLException {
 		String sql = "INSERT INTO membros_projeto (id_projeto, membros_id) VALUES (?, ?);";
 		try(PreparedStatement pstm = con.prepareStatement(sql)) {
 			
-			pstm.setInt(1, id_projeto);
-			pstm.setInt(1, id_gerente);
+			pstm.setString(1, idProjeto);
+			pstm.setString(2, usuarioId);
 			
 			pstm.execute();
 		}

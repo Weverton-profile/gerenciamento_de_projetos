@@ -29,7 +29,6 @@ public class Projetos implements Acao {
 			List<MembrosProjeto> membrosDoProjeto = membrosProjetoDao.membrosProjeto(id);
 			req.setAttribute("projetos", listaDeProjetos);
 			req.setAttribute("membrosDoProjeto", membrosDoProjeto);
-
 			return "forward:projetos.jsp";
 		}	
 	}

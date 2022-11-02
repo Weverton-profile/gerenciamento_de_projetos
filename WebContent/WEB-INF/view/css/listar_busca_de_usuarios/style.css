@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive, sans-serif;
+    font-weight: bold;
+}
+
+html, body {
+    height: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+.header {
+    padding-top: 20px;
+    background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
+    background-size: 400% 400%;
+    align-items: center;
+    color: #ffffff;
+}
+
+.header .logo {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.header .logo h2 {
+	display: inline;
+	margin-right: 5px;
+}
+
+.header .logo i {
+	font-size: 30px;
+}
+
+.header ul {
+    margin-top: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header ul li {
+    padding: 10px 0;
+    width: 15%;
+    text-align: center;
+}
+
+.header ul .login-logout a {
+	color: #ffffff;
+	text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header ul .login-logout a:hover {
+   color: #BEBEBE;
+}
+
+.titulo {
+	text-align: center;
+	font-family: cursive;
+}
+
+.membros {
+	width: 100%;
+	display: flex;
+	margin-top: 50px;
+	align-items: center;
+	flex-direction: column;
+}
+
+.card-membro {
+	padding: 10px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	width: 60%;
+	background: linear-gradient(#B0E0E6, #ADD8E6, #B0C4DE);
+	margin-bottom: 10px;
+}
+
+.add {
+	font-size: 2em;
+	color: #3CB371;
+}

@@ -31,9 +31,9 @@
 	<c:if test="${projeto.getGerente_id() == idUsuario}">
 		<div class="opcoes-gerente">
 			<form class="form" action="${linkEntradaServlet}" method="post">
-				<label for="nomeTarefa">Adicionar Membro ao Projeto:</label>
-				<input type="text" name="nomeTarefa" id="" required="required" placeholder="Buscar por E-mail">
-				<input type="hidden" name="action" value="NovaTarefa">
+				<label for="stringUsuario">Adicionar Membro ao Projeto:</label>
+				<input type="text" name="stringUsuario" id="" required="required" placeholder="Buscar Usuario">
+				<input type="hidden" name="action" value="BuscarUsuario">
 				<input type="hidden" name="idProjeto" value="${projeto.getId() }">
 				<input type="submit">
 			</form>
@@ -103,13 +103,14 @@
 		</div>
 	</div>
 	<c:if test="${projeto.getGerente_id() == idUsuario}">
-		<div class="membros">
-			<div class="card-membro">
-				<span>Nome do Membro</span> - <span>Email Membro</span> - <i class="excluir fa-solid fa-trash"></i>
-			</div>
-			<div class="card-membro">
-				<span>Nome do Membro</span> - <span>Email Membro</span> - <i class="excluir fa-solid fa-trash"></i>
-			</div>
+	    <div class="membros">
+			<c:forEach items="${usuarios}" var="usuario">
+				<c:if test="${usuario.getId() != idUsuario}">
+					<div class="card-membro">
+						<span>${usuario.getNomeUsuario()}</span> - <span>${usuario.getEmail()}</span> - <a href="entrada?action=InserirNoProjeto&idProjeto=${idProjeto}&usuarioId=${usuario.getId()}"><i class="excluir fa-solid fa-trash"></i></a>
+					</div>
+				</c:if>
+			</c:forEach>
 		</div>
     </c:if>
 </body>
