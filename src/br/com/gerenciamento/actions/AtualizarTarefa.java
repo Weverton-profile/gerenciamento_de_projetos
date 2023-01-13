@@ -24,7 +24,6 @@ public class AtualizarTarefa  implements Acao {
 			Integer id = Integer.valueOf(paramId);
 			HttpSession sessao = req.getSession();
 			Integer idUsuario = (Integer) sessao.getAttribute("idUsuario");
-			
 			Integer idUsuarioTarefa = tarefaDao.buscarTarefa(id);
 			if(paramStatus.equals("Fazendo")) {
 				tarefaDao.atualizarStatus(id, paramStatus, idUsuario);

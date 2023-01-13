@@ -15,7 +15,7 @@
 <body>
     <header class="header">
         <div class="logo">
-            <h2>Gerenciador de Projetos</h2>
+            <a href="entrada?action=Projetos">Gerenciador de Projetos</a>
             <i class="fa-solid fa-list-check"></i>
         </div>
         	<ul>
@@ -28,29 +28,29 @@
     </header>
 	<h1 class="titulo">Seus Projetos</h1>
 	<div class="add-projeto">
-		<a href="/gerenciamento_de_projetos/entrada?action=NovoProjeto" class="btn-add-projeto">Adicionar novos Projetos</a>
+	  <a href="/gerenciador-de-projetos-scrum/entrada?action=NovoProjeto" class="btn-add-projeto">Adicionar novos Projetos</a>
 	</div>
-    <main class="container-1">
+  	<main class="container-1">
 		<ul>
 			<c:forEach items="${projetos}" var="projeto">
-				<c:forEach items="${membrosDoProjeto}" var="membroProjeto">
-					<c:if test="${projeto.getId() == membroProjeto.getId_projeto()}">
-						<c:if test="${projeto.getGerente_id() == idUsuario || membroProjeto.getId_membro() == idUsuario }">
-							<li class="cards">
-								<h4>${projeto.getNome()}</h4>
-								<p>${projeto.getDescricao()}</p>
-								<p>Status: ${projeto.getAndamento()}</p>
-								<a href="/gerenciamento_de_projetos/entrada?action=VerTarefa&id=${projeto.getId()}">Ver mais...</a>
-								<c:if test="${projeto.getGerente_id() == idUsuario}">
-									<a href="/gerenciamento_de_projetos/entrada?action=ExcluirProjeto&id=${projeto.getId()}">Excluir</a>
-								</c:if>
-							</li>
+				<li class="cards">
+					<h4>${projeto.getNome()}</h4>
+					<p>${projeto.getDescricao()}</p>
+					<p>Status: ${projeto.getAndamento()}</p>
+                	<a href="/gerenciador-de-projetos-scrum/entrada?action=VerTarefa&id=${projeto.getId()}">Ver mais...</a>
+					<c:if test="${projeto.getGerente_id() == idUsuario}">
+						<c:if test="${projeto.getAndamento().equals('EM ANDAMENTO')}">
+							<a href="/gerenciador-de-projetos-scrum/entrada?action=ExcluirProjeto&id=${projeto.getId()}">Excluir</a>
+						</c:if>
+						<c:if test="${projeto.getAndamento().equals('FINALIZADO')}">
+							<a style="background-color: #00FF7F; color: #ffffff;" 
+							href="entrada?action=AtualizarProjeto&idProjeto=${projeto.getId() }&andamento=${projeto.getAndamento()}&id=${projeto.getGerente_id()}">REABRIR PROJETO</a>
 						</c:if>
 					</c:if>
-				</c:forEach>
+				</li>
 			</c:forEach>
 		</ul>
-    </main>
+  	</main>
     
 </body>
 </html>

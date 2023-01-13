@@ -24,7 +24,7 @@
                     <label for="">Senha:</label><br>
                     <input type="password" name="senha" id="" required="required">
                     <input type="hidden" name="action" value="Login">
-                    <a href="/gerenciamento_de_projetos/entrada?action=CadastrarNovoUsuario">não tenho uma conta ainda</a>
+                    <a href="entrada?action=CadastrarNovoUsuario">nÃ£o tenho uma conta ainda</a>
                     <input type="submit">
             </form>
         </div>

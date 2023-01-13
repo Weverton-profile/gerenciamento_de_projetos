@@ -15,7 +15,7 @@ public class Logout implements Acao {
 			throws SQLException, ServletException, IOException {
 
 		HttpSession sessao = req.getSession();
-//		sessao.removeAttribute("usuarioLogado");
+		sessao.removeAttribute("usuarioLogado");
 		sessao.invalidate();
 		return "redirect:Bem-vindo.jsp";
 	}

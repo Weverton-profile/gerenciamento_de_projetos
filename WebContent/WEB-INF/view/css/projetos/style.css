@@ -1,146 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: cursive, sans-serif;
-    font-weight: bold;
+  box-sizing: border-box;
+  font-family: cursive, sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
 .clear {
-    clear: both;
+  clear: both;
 }
 
 .header {
-    padding-top: 20px;
-    background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
-    background-size: 400% 400%;
-    align-items: center;
-    color: #ffffff;
+  align-items: center;
+  background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
+  background-size: 400% 400%;
+  color: #ffffff;
+  padding-top: 20px;
 }
 
 .header .logo {
-    font-size: 1.2em;
-    text-align: center;
+  font-size: 1.2em;
+  text-align: center;
 }
 
-.header .logo h2 {
+.header .logo a {
+	font-size: 1.2em;
+	color: #ffffff;
 	display: inline;
 	margin-right: 5px;
 }
 
+.header .logo a:hover {
+	text-decoration: none;
+	color: #fff;
+}
+
 .header .logo i {
-	font-size: 30px;
+  font-size: 30px;
 }
 
 .header ul {
-    margin-top: 20px;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin-top: 20px;
 }
 
 .header ul li {
-    padding: 10px 0;
-    width: 15%;
-    text-align: center;
+  padding: 10px 0;
+  text-align: center;
+  width: 15%;
 }
 
 .header ul .login-logout a {
-	color: #ffffff;
-	text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    cursor: pointer;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .header ul .login-logout a:hover {
-   color: #BEBEBE;
+  color: #BEBEBE;
 }
 
 .titulo {
-	text-align: center;
-	font-family: cursive;
+  font-family: 'Open Sans', 'Roboto', 'Montserrat';
+  text-align: center;
 }
 
 .add-projeto {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin: 16px;
 }
 
 .btn-add-projeto {
-	background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD);
-	padding: 10px;
-	border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid #7a67ec;
+  border-radius: 20px;
+  color: #7a67ec;
+  padding: 10px;
 }
 
 .btn-add-projeto {
-	color: #ffffff;
-	text-decoration: none;
+  color: #7a67ec;
+  text-decoration: none;
 }
 
 .btn-add-projeto:hover {
-	cursor: pointer;
-	color: #BEBEBE;
-	text-decoration: none;
+  background: linear-gradient(-45deg, #8470FF, #7B68EE, #6A5ACD); 
+  border: 2px solid #fff ;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .container-1 {
-	padding: 10px;
-	display: flex;
+  padding: 10px;
+  display: flex;
 }
 
 .container-1 ul {
-	width: 100%;
-	list-style: none;
-	display: flex;
-  	flex-wrap: wrap;
-  	text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+  width: 100%;
 }
 
 .container-1 .cards {
-	max-width: 30%;
- 	flex: 30%;
- 	margin: 10px;
- 	background-color: #8470FF;
- 	padding: 10px;
- 	border-radius: 20px;
- 	box-shadow: 0px 16px 24px 2px rgba(0,0,0,0.14) , 0px 6px 30px 5px rgba(0,0,0,0.12) , 0px 8px 10px -7px rgba(0,0,0,0.2);
- 	color: #ffffff;
+  background-color: #8470FF;
+  border-radius: 20px;
+  box-shadow: 0px 16px 24px 2px rgba(0,0,0,0.14) , 0px 6px 30px 5px rgba(0,0,0,0.12) , 0px 8px 10px -7px rgba(0,0,0,0.2);
+  color: #ffffff;
+  flex: 30%;
+  height: auto;
+  margin: 10px;
+  max-width: 30%;
+  padding: 10px;
+  text-align: left;
 }
 
 .container-1 .cards h4 {
-	text-align: center;
+  text-align: center;
 }
 
 .container-1 .cards a {
-	text-decoration: none;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 1.2em;
-	background-color: #ffffff;
-	color: #000000;
-
+  background-color: #ffffff;
+  border: transparent;
+  border-radius: 10px;
+  color: #635454;
+  display: block;
+  font-size: 1em;
+  margin: 7px 0 2px 0;
+  max-width: 100%;
+  padding: 5px 10px;  
+  text-align: left;
+  text-decoration: none;
 }
 
 .container-1 .cards a:hover {
-	color: #000000;
-	cursor: pointer;
+  color: #231f1f;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1100px) {
-	.container-1 ul {
-		display: inline-block;
-      	vertical-align: top;
-	}
-	
-	.container-1 .cards {
-		max-width: 60%;
- 		flex: 60%;
- 		margin-left: 10%;
-	}	
+  .container-1 ul {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .container-1 .cards {
+    flex: 60%;
+    margin-left: 10%;
+    max-width: 60%;
+  }	
 }

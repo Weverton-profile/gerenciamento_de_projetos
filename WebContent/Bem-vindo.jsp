@@ -13,15 +13,15 @@
 
     <header class="header">
         <div class="logo">
-            <h2>Gerenciador de Projetos</h2>
+            <a href="">Gerenciador de Projetos</a>
             <i class="fa-solid fa-list-check"></i>
         </div>
         	<ul>
                 <li class="login-logout">
-                    <a href="/gerenciamento_de_projetos/entrada?action=Logar">Entrar</a>
+                    <a href="entrada?action=Logar">Entrar</a>
                 </li>
                 <li class="login-logout">
-                    <a href="/gerenciamento_de_projetos/entrada?action=CadastrarNovoUsuario">Increver-se</a>
+                    <a href="entrada?action=CadastrarNovoUsuario">Increver-se</a>
                 </li>
         	</ul>
         <div class="clear"></div>

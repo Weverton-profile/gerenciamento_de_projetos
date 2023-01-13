@@ -17,7 +17,7 @@
 <body>
     <header class="header">
         <div class="logo">
-            <h2>Gerenciador de Projetos</h2>
+            <a href="entrada?action=Projetos">Gerenciador de Projetos</a>
             <i class="fa-solid fa-list-check"></i>
         </div>
         	<ul>

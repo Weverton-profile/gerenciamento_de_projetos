@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: cursive, sans-serif;
+    font-family: 'Open Sans', 'Roboto', 'Montserrat';
     font-weight: bold;
 }
 
@@ -23,13 +25,21 @@ html, body {
 }
 
 .header .logo {
+	font-family: cursive, sans-serif;
     font-size: 1.2em;
     text-align: center;
 }
 
-.header .logo h2 {
+.header .logo a {
+	font-size: 1.2em;
+	color: #ffffff;
 	display: inline;
 	margin-right: 5px;
+}
+
+.header .logo a:hover {
+	text-decoration: none;
+	color: #fff;
 }
 
 .header .logo i {
@@ -50,6 +60,7 @@ html, body {
 }
 
 .header ul .login-logout a {
+	font-family: cursive, sans-serif;
 	color: #ffffff;
 	text-decoration: none;
     font-size: 1.2em;
@@ -62,8 +73,8 @@ html, body {
 }
 
 .titulo {
+	font-family: 'Open Sans', 'Roboto', 'Montserrat';
 	text-align: center;
-	font-family: cursive;
 }
 
 .login {

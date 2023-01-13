@@ -20,8 +20,10 @@ public class NovaTarefa implements Acao {
 			TarefaDAO tarefaDao = new TarefaDAO(con);
 			String paramId = req.getParameter("idProjeto");
 			String paramNome = req.getParameter("nomeTarefa");
+			String paramTempo = req.getParameter("tempoTarefa");
 			Integer id = Integer.valueOf(paramId);
-			tarefaDao.criarTarefa(id, paramNome);
+			Integer tempo = Integer.valueOf(paramTempo);
+			tarefaDao.criarTarefa(id, paramNome, tempo);
 			return "redirect:entrada?action=VerTarefa&id=" + paramId;
 		}
 	}

@@ -16,21 +16,21 @@ import br.com.gerenciamento.jdbc.ConnectionFactory;
 import br.com.gerenciamento.model.MembrosProjeto;
 import br.com.gerenciamento.model.Projeto;
 
-
 public class Projetos implements Acao {
 	
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
-		try (Connection con = new ConnectionFactory().recuperarConexao()) {
-			ProjetoDAO projetoDao = new ProjetoDAO(con);
-			MembrosProjetoDAO membrosProjetoDao = new MembrosProjetoDAO(con);
-			List<Projeto> listaDeProjetos = projetoDao.listar();
-			HttpSession sessao = req.getSession();
-			Integer id = (Integer) sessao.getAttribute("idUsuario");
-			List<MembrosProjeto> membrosDoProjeto = membrosProjetoDao.membrosProjeto(id);
-			req.setAttribute("projetos", listaDeProjetos);
-			req.setAttribute("membrosDoProjeto", membrosDoProjeto);
-			return "forward:projetos.jsp";
-		}	
+        try (Connection con = new ConnectionFactory().recuperarConexao()) {
+            ProjetoDAO projetoDao = new ProjetoDAO(con);
+            MembrosProjetoDAO membrosProjetoDao = new MembrosProjetoDAO(con);
+            HttpSession sessao = req.getSession();
+            Integer id = (Integer) sessao.getAttribute("idUsuario");
+            List<Projeto> listaDeProjetos = projetoDao.listar(id);
+            List<MembrosProjeto> membrosDoProjeto = membrosProjetoDao.membrosProjeto(id);
+            req.setAttribute("idUsuario", id);
+            req.setAttribute("projetos", listaDeProjetos);
+            req.setAttribute("membrosDoProjeto", membrosDoProjeto);
+            return "forward:projetos.jsp";
+        }
 	}
 	
 }

@@ -27,9 +27,16 @@ html, body {
     text-align: center;
 }
 
-.header .logo h2 {
+.header .logo a {
+	font-size: 1.2em;
+	color: #ffffff;
 	display: inline;
 	margin-right: 5px;
+}
+
+.header .logo a:hover {
+	text-decoration: none;
+	color: #fff;
 }
 
 .header .logo i {
